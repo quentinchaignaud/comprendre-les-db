@@ -22,13 +22,18 @@
       theme = switchTheme
       document.documentElement.setAttribute('data-theme', theme)
     }
-  
+    
+    export let data;
   </script>
   
   <DarkMode bind:theme  key="custom-theme-key" />
   
   <main class:dark class="dark:bg-gray-900 transition-colors">
-    <Header on:click={handleThemeChange} currentTheme={theme} />
+    <Header 
+      on:click={handleThemeChange} 
+      currentTheme={theme} 
+      currentUser={data.user}
+    />
     <slot />
     <Footer />
   </main>

@@ -1,19 +1,10 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-    import { currentUser } from "$lib/pocketbase";
-    import { goto } from '$app/navigation';
-    import {browser} from '$app/environment';
 
     export let data: PageData;    
-
-    $: {
-        if(browser && $currentUser == null){
-            goto(`/auth/connexion`) 
-        }
-    }
 </script>
 
-<section class="px-2 lg:px-4 ">
+<!-- <section class="px-2 lg:px-4 ">
     <div id="video" style="position: relative;">
         <iframe 
             title={data.lesson.title} 
@@ -41,7 +32,7 @@
                 {@html data.lesson.content}
             </article>    
     </article>
-  </section>
+  </section> -->
 
 <style>
 

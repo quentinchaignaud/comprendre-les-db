@@ -1,9 +1,10 @@
 <script lang="ts">
     import logo from '$lib/images/logo.svg';
-    import { currentUser } from '$lib/pocketbase';
+    // import { currentUser } from '$lib/pocketbase';
 	  import UserMenu from './user_menu.svelte';
 
-    export let currentTheme : any;
+    export let currentTheme : string;
+    export let currentUser : string;
 
     let showMenuMobile = false;
   </script>
@@ -17,9 +18,9 @@
         </a>
       </div>
       <div class="flex lg:hidden">
-        {#if $currentUser}
+        {#if currentUser}
         <div class="mr-2 lg-mr-0">
-          <UserMenu username={$currentUser.username} />
+          <UserMenu username={currentUser} />
         </div>
         {:else}
         <a href="/auth/connexion" class="ml-6 mr-4 lg-mr-0 flex items-center text-sm font-semibold leading-6 text-gray-900 dark:text-white">Se connecter</a>
@@ -43,8 +44,8 @@
             </svg>
           {/if}
         </button>
-        {#if $currentUser}
-        <UserMenu username={$currentUser.username} />
+        {#if currentUser}
+        <UserMenu username={currentUser} />
         {:else}
         <a href="/auth/connexion" class="ml-6 flex items-center text-sm font-semibold leading-6 text-gray-900 dark:text-white">Se connecter <span class="mx-2" aria-hidden="true">&rarr;</span></a>
         {/if}
