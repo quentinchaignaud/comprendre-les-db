@@ -1,9 +1,5 @@
 <script lang="ts">
-	import Alert from '../../components/Alert.svelte';
-	import Button from '../../components/Button.svelte';
-	import Input from '../../components/Input.svelte';
-	import Label from '../../components/Label.svelte';
-	import Switch from '../../components/Switch.svelte';
+	import { Button, Input, Label, Switch } from '$lib/components';
 
 	let showAlert = false;
 </script>
@@ -22,21 +18,27 @@
 								<Label forId="username" text="Changer le pseudo" />
 								<div class="mt-2 flex flex-row">
 									<Input id="username" type="text" />
-									<Button text="Sauvegarder" />
+									<div class="w-2/5 ml-2">
+										<Button text="Sauvegarder" />
+									</div>
 								</div>
 							</form>
 							<form action="?/updateMail" method="POST" class="sm:col-span-4 lg:col-span-6">
 								<Label forId="email" text="Changer l'adresse mail" />
 								<div class="mt-2 flex flex-row">
 									<Input id="email" type="email" />
-									<Button text="Sauvegarder" />
+									<div class="w-2/5 ml-2">
+										<Button text="Sauvegarder" />
+									</div>
 								</div>
 							</form>
 							<div class="sm:col-span-4 lg:col-span-6">
 								<Label forId="password" text="Changer le mot de passe" />
 								<div class="mt-2 flex flex-row">
 									<Input id="password" type="password" />
-									<Button text="Sauvegarder" />
+									<div class="w-2/5 ml-2">
+										<Button text="Sauvegarder" />
+									</div>
 								</div>
 							</div>
 						</div>

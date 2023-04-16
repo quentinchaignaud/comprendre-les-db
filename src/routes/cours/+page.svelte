@@ -25,7 +25,7 @@
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">Cours</h2>
         <p class="mt-2 text-base leading-8 text-gray-600 dark:text-gray-300">Tout les cours présents ici sont 100% gratuits. Ils se concentrent sur des concepts plutôt que des langages, pour que les juniors puissent obtenir cette vision d'ensemble qui leur fait souvent défaut.</p>
         <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
-          {#each data.courses as course}
+          <!-- {#each data.courses as course}
           <article class="p-2 relative isolate flex flex-col gap-8 lg:flex-row lg:hover:bg-gray-100 rounded-xl hover:cursor-pointer dark:lg:hover:bg-gray-800">
             <div class="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
               <img src={`https://api.quentinchaignaud.com/api/files/${course.collectionId}/${course.id}/${course.image}`} alt="Illustration d'un casier contenant des dossiers." class="absolute inset-0 h-full w-full rounded-2xl bg-white dark:bg-gray-700 object-contain lg:object-cover">
@@ -48,7 +48,7 @@
               </div>
             </div>
           </article>
-          {/each}
+          {/each} -->
         </div>
       </div>
     </div>

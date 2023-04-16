@@ -35,7 +35,7 @@
   </section> -->
 
 <style>
-
+/* 
     #video {
         padding-top: 100%;
     }
@@ -50,6 +50,6 @@
         #video {
             padding-top: 40%;
         }
-    }
+    } */
 
 </style>
