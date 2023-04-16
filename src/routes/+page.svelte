@@ -1,16 +1,16 @@
 <svelte:head>
-	<title>Quentin Chaignaud | Software Engineer</title>
-	<link rel="canonical" href="https://quentinchaignaud.com/" />
-	<meta name="description" content="Software engineer travaillant principalement avec Python et Azure, je donne également des cours d'informatique gratuitement en ligne." />
-	<meta property="og:title" content="Quentin Chaignaud | Software Engineer" />
-	<meta property="og:description" content="Software engineer travaillant principalement avec Python et Azure, je donne également des cours d'informatique gratuitement en ligne." />
-	<meta property="og:image" content="https://quentinchaignaud.com/og-images/og-image.png" />
-	<meta property="og:url" content="https://quentinchaignaud.com/" />
+	<title>Comprendre les bases de données</title>
+	<link rel="canonical" href="https://comprendre-les-db.quentinchaignaud.com/" />
+	<meta name="description" content="" />
+	<meta property="og:title" content="Comprendre les bases de données" />
+	<meta property="og:description" content="" />
+	<meta property="og:image" content="https://comprendre-les-db.quentinchaignaud.com/og-images/og-image.png" />
+	<meta property="og:url" content="https://comprendre-les-db.quentinchaignaud.com/" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@quentin__js" />
-	<meta name="twitter:title" content="https://quentinchaignaud.com/" />
-	<meta name="twitter:description" content="Software engineer travaillant principalement avec Python et Azure, je donne également des cours d'informatique gratuitement en ligne." />
-	<meta name="twitter:image" content="https://quentinchaignaud.com/og-images/og-image.png" />
+	<meta name="twitter:title" content="https://comprendre-les-db.quentinchaignaud.com/" />
+	<meta name="twitter:description" content="" />
+	<meta name="twitter:image" content="https://comprendre-les-db.quentinchaignaud.com/og-images/og-image.png" />
 </svelte:head>
 
 <section>

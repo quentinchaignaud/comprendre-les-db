@@ -1,7 +1,7 @@
 <script lang="ts">
     import logo from '$lib/images/logo.svg';
     // import { currentUser } from '$lib/pocketbase';
-	  import UserMenu from './user_menu.svelte';
+	  import UserMenu from '../components/UserMenu.svelte';
 
     export let currentTheme : string;
     export let currentUser : string;
