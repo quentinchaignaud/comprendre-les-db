@@ -19,14 +19,14 @@
 				<div>
 					<Label forId="email" text="Adresse mail" />
 					<div class="mt-2">
-						<Input name="email" id="email" type="email" />
+						<Input id="email" type="email" />
 					</div>
 				</div>
 
 				<div>
 					<Label forId="password" text="Mot de passe" />
 					<div class="mt-2">
-						<Input name="password" id="password" type="password" />
+						<Input id="password" type="password" />
 					</div>
 				</div>
 				<div class="text-sm">
