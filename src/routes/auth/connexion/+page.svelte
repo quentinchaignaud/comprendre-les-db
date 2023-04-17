@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { Input, Label, Alert, Button, Link } from '$lib/components';
+
+	export let form;
 </script>
 
 <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -19,14 +21,19 @@
 				<div>
 					<Label forId="email" text="Adresse mail" />
 					<div class="mt-2">
-						<Input id="email" type="email" />
+						<Input
+							id="email"
+							type="text"
+							value={form?.data.email ?? ''}
+							errors={form?.errors.email}
+						/>
 					</div>
 				</div>
 
 				<div>
 					<Label forId="password" text="Mot de passe" />
 					<div class="mt-2">
-						<Input id="password" type="password" />
+						<Input id="password" type="password" errors={form?.errors.password}/>
 					</div>
 				</div>
 				<div class="text-sm">
@@ -35,12 +42,6 @@
 				<div>
 					<Button text="Se connecter" />
 				</div>
-				{#if true}
-					<Alert
-						type="error"
-						text="Vous devez vérifier votre email afin de pouvoir vous connecter."
-					/>
-				{/if}
 			</form>
 		</div>
 	</div>
