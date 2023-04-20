@@ -1,9 +1,3 @@
-import type { z } from 'zod';
-
-export const serializeNonPOJOs = (obj : any) => {
-    return structuredClone(obj)
-}
-
 export const validateData = async (formData : any, schema : any) => {
     const body = Object.fromEntries(formData)
 

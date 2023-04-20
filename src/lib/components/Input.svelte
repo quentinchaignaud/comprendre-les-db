@@ -5,7 +5,6 @@
 	export let type: 'password' | 'text' | 'email' = 'text';
 	export let disabled = false;
 	export let required = true;
-
 	export let errors : any;
 </script>
 

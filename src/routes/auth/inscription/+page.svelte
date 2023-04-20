@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
 	import { Button, Input, Label } from '$lib/components';
+	export let form;
 </script>
 
 <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -22,27 +23,45 @@
 		<div class="bg-white dark:bg-gray-800 px-4 py-8 shadow sm:rounded-lg sm:px-10">
 			<form action="?/register" method="POST" class="space-y-6">
 				<div>
-					<Label forId="name" text="Pseudo" />
+					<Label forId="username" text="Pseudo" />
 					<div class="mt-2">
-						<Input id="name" type="text" />
+						<Input
+							id="username"
+							type="text"
+							value={form?.data?.username}
+							errors={form?.errors?.username}
+						/>
 					</div>
 				</div>
 				<div>
 					<Label forId="email" text="Adresse mail" />
 					<div class="mt-2">
-						<Input id="email" type="email" />
+						<Input 
+							id="email" 
+							type="email" 
+							value={form?.data?.email} 
+							errors={form?.errors?.email} 
+						 />
 					</div>
 				</div>
 				<div>
 					<Label forId="password" text="Mot de passe" />
 					<div class="mt-2">
-						<Input id="password" type="password" />
+						<Input
+							id="password"
+							type="password"
+							errors={form?.errors?.password}
+						/>
 					</div>
 				</div>
 				<div>
 					<Label forId="passwordConfirm" text="Confirmer le mot de passe" />
 					<div class="mt-2">
-						<Input id="passwordConfirm" type="password" />
+						<Input
+							id="passwordConfirm"
+							type="password"
+							errors={form?.errors?.passwordConfirm}
+						/>
 					</div>
 				</div>
 				<div>

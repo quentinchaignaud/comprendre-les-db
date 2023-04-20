@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Input, Label, Alert, Button, Link } from '$lib/components';
 
-	export let form;
+	export let form
 </script>
 
 <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -23,7 +23,7 @@
 					<div class="mt-2">
 						<Input
 							id="email"
-							type="text"
+							type="email"
 							value={form?.data.email ?? ''}
 							errors={form?.errors.email}
 						/>
