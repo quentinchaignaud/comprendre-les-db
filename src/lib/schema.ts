@@ -7,6 +7,12 @@ export const loginUserSchema = z.object({
 	password: z.string({ required_error: 'Un mot de passe est requis.' })
 });
 
+export const changePasswordSchema = z.object({
+	email: z
+		.string({ required_error: 'Une adresse mail est requise.' })
+		.email({ message: `L'adresse mail n'est pas valide.` }),
+});
+
 export const registerUserSchema = z.object({
 	username: z
 		.string({ required_error: 'Un pseudo est requis' })
@@ -44,4 +50,15 @@ export const registerUserSchema = z.object({
 			path: ['passwordConfirm']
 		});
 	}
+});
+
+export const updateUsernameSchema = z.object({
+	username: z
+		.string({ required_error: 'Un pseudo est requis' })
+		.regex(/^[a-zA-Z\s]*$/, {
+			message: 'Le pseudo ne doit comprendre que des lettres et des espaces.'
+		})
+		.min(2, { message: 'Le pseudo doit faire plus de 2 caractères.' })
+		.max(64, { message: 'Le pseudo doit faire moins de 64 caractères.' })
+		.trim(),
 });

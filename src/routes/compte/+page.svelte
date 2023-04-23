@@ -1,5 +1,10 @@
 <script lang="ts">
-	import { Button, Input, Label, Link, Switch } from '$lib/components';
+	import { Button, Input, Label, Link, ModalDelete } from '$lib/components';
+
+	export let form;
+
+	let deleteAccountModalOpen: boolean;
+	$: deleteAccountModalOpen = false;
 </script>
 
 <div class="py-24 sm:py-32 min-h-screen text-gray-900 dark:text-gray-50">
@@ -15,28 +20,30 @@
 							<form action="?/updateUsername" method="POST" class="sm:col-span-4 lg:col-span-6">
 								<Label forId="username" text="Changer le pseudo" />
 								<div class="mt-2 flex flex-row">
-									<Input id="username" />
-									<div class="w-2/5 ml-2">
-										<Button text="Sauvegarder" />
+									<div class="w-3/4">
+										<Input
+											id="username"
+											type="text"
+											value={form?.data?.username}
+											errors={form?.errors?.username}
+										/>
 									</div>
-								</div>
-							</form>
-							<form action="?/updateEmail" method="POST" class="sm:col-span-4 lg:col-span-6">
-								<Label forId="email" text="Changer l'adresse mail" />
-								<div class="mt-2 flex flex-row">
-									<Input id="email" type="email" />
-									<div class="w-2/5 ml-2">
+									<div class="w-1/4 ml-2">
 										<Button text="Sauvegarder" />
 									</div>
 								</div>
 							</form>
 						</div>
 					</div>
-					<form action="?/updatePassword" method="POST" class="border-b border-gray-900/10 pb-12 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+					<form
+						action="?/updatePassword"
+						method="POST"
+						class="border-b border-gray-900/10 pb-12 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
+					>
 						<div class="sm:col-span-4 lg:col-span-6">
 							<Label forId="oldPassword" text="Ancien mot de passe" />
 							<div class="mt-2 flex flex-row">
-								<Input id="oldPassword" type="password" />
+								<Input id="oldPassword" type="password" value="" errors="" />
 							</div>
 							<div class="text-sm mt-2">
 								<Link url="/auth/changer-mot-de-passe" text="Mot de passe oublié?" />
@@ -45,30 +52,23 @@
 						<div class="sm:col-span-4 lg:col-span-6">
 							<Label forId="password" text="Nouveau mot de passe" />
 							<div class="mt-2 flex flex-row">
-								<Input id="password" type="password" />
+								<Input id="password" type="password" value="" errors="" />
 							</div>
 						</div>
 						<div class="sm:col-span-4 lg:col-span-6">
 							<Label forId="passwordConfirm" text="Confirmer le nouveau mot de passe" />
 							<div class="mt-2 flex flex-row">
-								<Input id="passwordConfirm" type="password" />
+								<Input id="passwordConfirm" type="password" value="" errors="" />
 							</div>
 						</div>
 						<div class="w-60">
 							<Button text="Mofidier le mot de passe" />
 						</div>
 					</form>
-
+					{#if deleteAccountModalOpen}
+						<ModalDelete functionPassed={() => (deleteAccountModalOpen = !deleteAccountModalOpen)} />
+					{/if}
 					<div class="border-b border-gray-900/10 pb-12">
-						<div class="flex items-center justify-between">
-							<span class="flex flex-grow flex-col">
-								<Label text="Notification" />
-								<span class="text-sm text-gray-500 dark:text-gray-300" id="availability-description"
-									>Je souhaite recevoir des updates sur le cours :</span
-								>
-							</span>
-							<Switch notificationActivated />
-						</div>
 						<div class="flex items-center justify-between mt-10">
 							<span class="flex flex-grow flex-col">
 								<Label text="Supprimer le compte" />
@@ -77,7 +77,12 @@
 								>
 							</span>
 							<div class="w-2/5">
-								<Button type="button" text="Supprimer le compte" />
+								<Button
+									functionPassed={() => (deleteAccountModalOpen = !deleteAccountModalOpen)}
+									dangerous
+									type="button"
+									text="Supprimer le compte"
+								/>
 							</div>
 						</div>
 					</div>

@@ -8,7 +8,7 @@
 	export let errors : any;
 </script>
 
-<div class="relative mt-2 rounded-md shadow-sm">
+<div class="relative rounded-md shadow-sm w-full">
 	<input
 		{id}
 		{type}
@@ -19,7 +19,7 @@
 		name={id}
 		class="{errors
 			? 'ring-red-300 text-red-900'
-			: ''} px-2 block dark:bg-gray-700 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 place dark:ring-gray-500 holder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indig5-600 sm:text-sm sm:leading-6 dark:text-gray-50"
+			: ''} px-2 block dark:bg-gray-700 w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 place dark:ring-gray-500 holder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 dark:text-gray-50"
 	/>
 	{#if errors}
 		<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Input, Label, Alert, Button, Link } from '$lib/components';
+	import { Input, Label, Button, Link } from '$lib/components';
 
 	export let form
 </script>

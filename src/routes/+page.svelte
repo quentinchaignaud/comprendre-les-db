@@ -1,3 +1,8 @@
+<script>
+
+	import Button from "$lib/components/Button.svelte";
+
+</script>
 <svelte:head>
 	<title>Comprendre les bases de données</title>
 	<link rel="canonical" href="https://comprendre-les-db.quentinchaignaud.com/" />
