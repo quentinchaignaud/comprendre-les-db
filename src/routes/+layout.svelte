@@ -3,6 +3,7 @@
 	import { Navbar, Footer } from '$lib/components';
 	import DarkMode from 'svelte-dark-mode';
 	import { afterUpdate } from 'svelte';
+	import { Toaster } from 'svelte-french-toast'
 
 	let theme: any;
 	let switchTheme: string;
@@ -24,6 +25,8 @@
 
 	export let data;
 </script>
+
+<Toaster />
 
 <DarkMode bind:theme key="custom-theme-key" />
 
