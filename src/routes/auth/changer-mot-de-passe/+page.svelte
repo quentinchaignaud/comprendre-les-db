@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { Alert, Button } from '$lib/components';
+	import { Button } from '$lib/components';
 	import type { ActionResult } from '@sveltejs/kit';
 	import toast from 'svelte-french-toast';
 
@@ -9,6 +9,7 @@
 			switch (result.type) {
 				case 'success':
 					toast.success('Message envoyé !');
+					await setTimeout(() => {}, 5000)
 					await update();
 					break;
 				case 'error':
