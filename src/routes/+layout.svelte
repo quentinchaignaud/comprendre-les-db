@@ -6,7 +6,7 @@
 	import { Toaster } from 'svelte-french-toast'
 
 	let theme: any;
-	let switchTheme: string;
+	let switchTheme: string; 
 	let dark: boolean;
 
 	if (typeof window !== 'undefined') {

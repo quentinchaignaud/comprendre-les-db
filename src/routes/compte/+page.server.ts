@@ -24,7 +24,7 @@ export const actions = {
 		try {
 			const { username } = await locals.pb
 				.collection('users')
-				.update(locals.user.id, { username: formData.username });
+				.update(locals.user.id, { username: formData.username.split(' ').join('') });
 			locals.user.username = username;
 			return {
 				success: true

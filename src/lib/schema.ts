@@ -16,8 +16,8 @@ export const changePasswordSchema = z.object({
 export const registerUserSchema = z.object({
 	username: z
 		.string({ required_error: 'Un pseudo est requis' })
-		.regex(/^[a-zA-Z\s]*$/, {
-			message: 'Le pseudo ne doit comprendre que des lettres et des espaces.'
+		.regex(/^[a-zA-Z0-9\s]*$/, {
+			message: 'Le pseudo ne doit comprendre que des lettres, des chiffres et des espaces.'
 		})
 		.min(2, { message: 'Le pseudo doit faire plus de 2 caractères.' })
 		.max(64, { message: 'Le pseudo doit faire moins de 64 caractères.' })
@@ -55,8 +55,8 @@ export const registerUserSchema = z.object({
 export const updateUsernameSchema = z.object({
 	username: z
 		.string({ required_error: 'Un pseudo est requis' })
-		.regex(/^[a-zA-Z\s]*$/, {
-			message: 'Le pseudo ne doit comprendre que des lettres et des espaces.'
+		.regex(/^[a-zA-Z0-9\s]*$/, {
+			message: 'Le pseudo ne doit comprendre que des lettres, des chiffres et des espaces.'
 		})
 		.min(2, { message: 'Le pseudo doit faire plus de 2 caractères.' })
 		.max(64, { message: 'Le pseudo doit faire moins de 64 caractères.' })

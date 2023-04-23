@@ -1,10 +1,43 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 	import { Button, Input, Label, Link, ModalDelete } from '$lib/components';
+	import type { ActionResult } from '@sveltejs/kit';
+	import toast from 'svelte-french-toast';
 
 	export let form;
 
 	let deleteAccountModalOpen: boolean;
 	$: deleteAccountModalOpen = false;
+
+	const updateUsername = () => {
+		return async ({ result, update }: { result: ActionResult; update: Function }) => {
+			switch (result.type) {
+				case 'success':
+					toast.success('Le pseudo à bien été modifié !');
+					await update();
+					break;
+				case 'error':
+					toast.error(result.error.message);
+					break;
+				default:
+					await update();
+			}
+		};
+	};
+	const updatePassword = () => {
+		return async ({ result, update }: { result: ActionResult; update: Function }) => {
+			switch (result.type) {
+				case 'success':
+					await update();
+					break;
+				case 'error':
+					toast.error(result.error.message);
+					break;
+				default:
+					await update();
+			}
+		};
+	};
 </script>
 
 <div class="py-24 sm:py-32 min-h-screen text-gray-900 dark:text-gray-50">
@@ -17,16 +50,16 @@
 				<div class="space-y-12">
 					<div class="border-b border-gray-900/10 pb-12">
 						<div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-							<form action="?/updateUsername" method="POST" class="sm:col-span-4 lg:col-span-6">
+							<form
+								use:enhance={updateUsername}
+								action="?/updateUsername"
+								method="POST"
+								class="sm:col-span-4 lg:col-span-6"
+							>
 								<Label forId="username" text="Changer le pseudo" />
 								<div class="mt-2 flex flex-row">
 									<div class="w-3/4">
-										<Input
-											id="username"
-											type="text"
-											value={form?.data?.username}
-											errors={form?.errors?.username}
-										/>
+										<Input id="username" type="text" errors={form?.errors?.username} />
 									</div>
 									<div class="w-1/4 ml-2">
 										<Button text="Sauvegarder" />
@@ -36,6 +69,7 @@
 						</div>
 					</div>
 					<form
+						use:enhance={updatePassword}
 						action="?/updatePassword"
 						method="POST"
 						class="border-b border-gray-900/10 pb-12 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6"
@@ -66,7 +100,9 @@
 						</div>
 					</form>
 					{#if deleteAccountModalOpen}
-						<ModalDelete functionPassed={() => (deleteAccountModalOpen = !deleteAccountModalOpen)} />
+						<ModalDelete
+							functionPassed={() => (deleteAccountModalOpen = !deleteAccountModalOpen)}
+						/>
 					{/if}
 					<div class="border-b border-gray-900/10 pb-12">
 						<div class="flex items-center justify-between mt-10">

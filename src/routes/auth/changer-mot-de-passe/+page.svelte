@@ -1,7 +1,24 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 	import { Alert, Button } from '$lib/components';
+	import type { ActionResult } from '@sveltejs/kit';
+	import toast from 'svelte-french-toast';
 
-    export let form
+	const submitResetPassword = () => {
+		return async ({ result, update }: { result: ActionResult; update: Function }) => {
+			switch (result.type) {
+				case 'success':
+					toast.success('Message envoyé !');
+					await update();
+					break;
+				case 'error':
+					toast.error(result.error.message);
+					break;
+				default:
+					await update();
+			}
+		};
+	};
 </script>
 
 <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -16,7 +33,12 @@
 
 	<div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
 		<div class="bg-white dark:bg-gray-800 px-4 py-8 shadow sm:rounded-lg sm:px-10">
-			<form action="?/resetPassword" method="POST" class="space-y-6">
+			<form
+				use:enhance={submitResetPassword}
+				action="?/resetPassword"
+				method="POST"
+				class="space-y-6"
+			>
 				<div>
 					<label
 						for="email"
@@ -38,9 +60,6 @@
 				<div>
 					<Button text="Envoyer un mail de récupération" />
 				</div>
-                {#if form?.success}
-					<Alert type="success" text="Un e-mail a bien été envoyé." />
-                {/if}
 			</form>
 		</div>
 	</div>
